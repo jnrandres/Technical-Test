@@ -1,0 +1,43 @@
+<div class="container mt-2">
+    <h1>{{ title }}</h1>
+    
+    <div *ngIf="alertaCampos == 0" class="alert alert-warning" role="alert">
+        ¡Falta completar campos!
+    </div>
+
+    <div *ngIf="alertaNumeros == 0" class="alert alert-danger" role="alert">
+        ¡Ingrese solo números!
+    </div>
+
+    <div class="row">
+      <div class="form-group col-6">
+        <label for="idLatitud">Latitud</label>
+        <input type="text" #lati class="form-control" id="idLatitud" placeholder="Ingresa coordenada" >
+      </div>
+      <div class="form-group col-6">
+        <label for="idLongitud">Longitud</label>
+        <input type="text" #lngi class="form-control" id="idLongitud" placeholder="Ingresa coordenada" >
+      </div>
+    </div>
+  
+    <button (click)="getCoordenadas(lati.value, lngi.value)" class="btn btn-primary mt-2">Guardar</button>
+    
+    
+    <div *ngIf="registrado" class="card text-white bg-success mt-3" style="max-width: 24rem;">
+      <div class="card-header">Registro ingresado exitosamente</div>
+      <div class="card-body">
+        <h5 class="card-title">Descripción</h5>
+        <p class="card-text">
+          <strong>ID:</strong> {{idGen}}
+          <br>
+          <strong>Latitud:</strong>  {{lat}}
+          <br>
+          <strong>Longitud:</strong> {{lng}}
+          <br>
+        </p>
+      </div>
+    </div>
+  
+  </div>
+  
+ 
